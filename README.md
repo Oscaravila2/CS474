@@ -3,6 +3,7 @@
 ## Members
 - Oscar Avila
 - Marcus Henke
+- Dylan Hartley
 
 ## Possible Projects
 - [Teammates](https://github.com/TEAMMATES/teammates)
