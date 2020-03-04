@@ -11,3 +11,4 @@
 - [Glide](https://github.com/bumptech/glide)
 - [Spring Framework](https://github.com/spring-projects/spring-framework)
 - [Logger](https://github.com/orhanobut/logger) *Might not have 8k lines of code or more*
+- [Guava](https://github.com/google/guava)
