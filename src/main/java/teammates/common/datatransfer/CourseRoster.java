@@ -80,6 +80,14 @@ public class CourseRoster {
         for (StudentAttributes student : studentList) {
             emailToNameTable.put(student.email, student.name);
         }
+
+        //Assert that the map has correct values
+        for (StudentAttributes student : studentList) {
+            assert emailToNameTable.get(student.email).equals(student.name) : "Email to name table has incorrect or missing values";
+        }
+        for (InstructorAttributes instructor : instructorList) {
+            assert emailToNameTable.get(instructor.email).equals(instructor.name) : "Email to name table has incorrect or missing values";
+        }
         return emailToNameTable;
     }
 
@@ -89,8 +97,14 @@ public class CourseRoster {
             return;
         }
 
+        assert studentListByEmail != null : "Error: trying to append data to non-existent map";
         for (StudentAttributes s : students) {
             studentListByEmail.put(s.email, s);
+        }
+
+        //Assert that all new student details are added to the list
+        for (StudentAttributes s : students) {
+            assert studentListByEmail.get(s.email).equals(s);
         }
     }
 
