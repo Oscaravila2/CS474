@@ -188,6 +188,7 @@ public final class SanitizationHelper {
                 return false;
             }
         }
+        return true;
     }
 
     /**

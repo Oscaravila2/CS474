@@ -13,6 +13,26 @@ public class EmailSendingStatus {
         this.statusCode = statusCode;
         this.message = message;
         this.isSuccess = statusCode >= 200 && statusCode <= 299;
+        assert checkSuccess(statusCode);
+    }
+
+    public static boolean checkSuccess(int statusCode){
+        if(statusCode >= 200 && statusCode <= 299){
+            if(this.isSuccess){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            if(!this.isSuccess){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
     }
 
     public int getStatusCode() {
