@@ -165,6 +165,8 @@ public class StudentProfile extends BaseEntity {
 
     public void setPictureKey(String pictureKey) {
         this.pictureKey = pictureKey == null ? null : new BlobKey(pictureKey);
+        //assert that the ternary setter works correctly
+        if (pictureKey != null) assert this.pictureKey.getKeyString().equals(pictureKey) : "picture key was not set to the correct key value";
     }
 
     public Instant getModifiedDate() {
