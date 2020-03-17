@@ -33,6 +33,10 @@ public class FeedbackSessionDetailsBundle {
                 .thenComparing(fsd -> fsd.feedbackSession.getEndTime())
                 .thenComparing(fsd -> fsd.feedbackSession.getStartTime())
                 .thenComparing(fsd -> fsd.feedbackSession.getFeedbackSessionName()));
+        
+        for(int i = 0; i < sessions.size()-2; i++){
+            assert sessions.get(i).getCourseId() <= sessions.get(i+1).getCourseId() : "List didn't sort correctly";
+		}
     }
 
     @Override

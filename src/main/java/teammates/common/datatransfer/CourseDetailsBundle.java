@@ -51,6 +51,10 @@ public class CourseDetailsBundle {
      */
     public static void sortDetailedCoursesByCourseId(List<CourseDetailsBundle> courses) {
         courses.sort(Comparator.comparing(obj -> obj.course.getId()));
+        
+        for (int i = 0; i < courses.size()-2; i++) {
+            assert courses.get(i).getId() <= courses.get(i+1).getId() : "Courses  are not sorted correctly by ID";
+		}
     }
 
     /**

@@ -223,6 +223,7 @@ public final class NationalityHelper {
      * Returns with the nationalities list.
      */
     public static List<String> getNationalities() {
+        assert NATIONALITIES.length() == Arrays.asList(NATIONALITIES).length() : "Return array doesn't match original array";
         return Arrays.asList(NATIONALITIES);
     }
 
