@@ -235,6 +235,8 @@ public final class AccountsLogic {
             Assumption.fail("Invalid account data detected unexpectedly "
                     + "while removing instruction privileges from account :" + googleId + e.getMessage());
         }
+        AccountAttributes accountA = accountsDb.getAccount(googleId);
+        assert !accountA.isInstructor();
     }
 
     /**
