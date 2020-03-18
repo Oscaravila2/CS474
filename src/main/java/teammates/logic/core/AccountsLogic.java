@@ -133,7 +133,7 @@ public final class AccountsLogic {
 
         AccountAttributes account = accountsDb.getAccount(googleId);
         String instituteToSave = institute == null ? getCourseInstitute(instructor.courseId) : institute;
-
+        assert account.isInstructor(); 
         if (account == null) {
             try {
                 createAccount(AccountAttributes.builder(googleId)
