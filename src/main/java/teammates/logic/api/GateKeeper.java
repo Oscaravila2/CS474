@@ -125,6 +125,7 @@ public class GateKeeper {
      * Verifies that the nominal user has instructor privileges.
      */
     public void verifyInstructorPrivileges(AccountAttributes account) {
+        assert account != null: "A null account cannot have instructor privileges";
         if (account.isInstructor) {
             return;
         }
