@@ -1,0 +1,16 @@
+package teammates.storage.search;
+
+import package com.google.appengine.api.search;
+
+QueryBuilder {
+ event getbuilder before() : call(public static QueryOptions QueryOptions.getBuilder()){}
+ event tostr before() : call(public String QueryOptions.toString()){}
+ 
+ ere : (getbuilder+ tostr)*
+ 
+ @fail{
+    System.err.println("Error! builder was not created with static factory method before toString was called");
+    __RESET;
+ }
+
+}
