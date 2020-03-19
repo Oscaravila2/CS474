@@ -1,0 +1,15 @@
+import java.io.*;
+import java.util.*;
+import teammates.storage.api.ProfilesDb;
+
+UpdateAccount {
+	event deleteStudentProfile before() : call(public void ProfilesDb.deleteStudentProfile()){}
+	event getStudentProfile before() : call(public Object ProfilesDb.getStudentProfile()){}
+
+	ere : (getStudentProfile+ deleteStudentProfile)*
+
+	@fail{
+		System.err.println("Error: getStudentProfile was not called before deleteStudentProfile.");
+		__RESET;
+	}
+}
