@@ -1,0 +1,15 @@
+import java.io.*;
+import java.util.*;
+import teammates.storage.api.AccountsDb;
+
+UpdateAccount {
+	event updateAccount before() : call(public Object AccountsDb.updateAccount()){}
+	event getAccount before() : call(public Object Accounts.Db.getAccount()){}
+
+	ere : (getAccount+ updateAccount)*
+
+	@fail{
+		System.err.println("Error: getAccount was not called before updateAccount.");
+		__RESET;
+	}
+}
