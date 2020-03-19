@@ -133,7 +133,7 @@ public final class AccountsLogic {
 
         AccountAttributes account = accountsDb.getAccount(googleId);
         String instituteToSave = institute == null ? getCourseInstitute(instructor.courseId) : institute;
-
+        assert account.isInstructor(); 
         if (account == null) {
             try {
                 createAccount(AccountAttributes.builder(googleId)
@@ -235,6 +235,8 @@ public final class AccountsLogic {
             Assumption.fail("Invalid account data detected unexpectedly "
                     + "while removing instruction privileges from account :" + googleId + e.getMessage());
         }
+        AccountAttributes accountA = accountsDb.getAccount(googleId);
+        assert !accountA.isInstructor();
     }
 
     /**

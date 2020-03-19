@@ -178,6 +178,17 @@ public final class SanitizationHelper {
                               .replace("&#x2f;", "/")
                               .replace("&#39;", "'")
                               .replace("&amp;", "&");
+                assert checkSanitizeForHTML(unsanitizedString):"sanitizeForHTML failed";
+    }
+
+    public static boolean checkSanitizeForHTML(String finalString){
+        char[] characters = finalString;
+        For(char c: characters){
+            if(c == '>' || c=='\"' || c=='/' || c'\''){
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -204,7 +215,18 @@ public final class SanitizationHelper {
         if (string == null) {
             return null;
         }
+        assert checkHTMLTag(string):"sanitizeForHTMLTag failed";
         return string.replace("<", "&lt;").replace(">", "&gt;");
+    }
+
+    public static boolean checkHTMLTag(String check){
+        char[] characters = check;
+        for(char c: characters){
+            if(c == '<' || c=='>'){
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
