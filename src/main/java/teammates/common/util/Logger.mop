@@ -1,0 +1,21 @@
+package teammates.common.util;
+
+import java.io.*;
+import java.util.*;
+
+Log(){
+
+    event getLogger after(): call(public Logger.getLogger()) {}
+    event fine after(): call(public void Logger.fine){}
+    event info after(): call(public void Logger.info){}
+    event warning after(): call(public void Logger.warning){}
+    event severe after(): call(public void Logger.severe){}
+
+    ere: getLogger+ (fine | info | warning | severe)*
+
+    @fail{
+        System.err.println("Must getLogger before trying to log an event");
+        __RESET;
+    }
+
+}
