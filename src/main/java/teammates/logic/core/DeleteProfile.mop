@@ -1,0 +1,15 @@
+package teammates.logic.core.ProfilesLogic;
+import teammates.storage.api.ProfilesDb;
+
+DeleteProfile {
+ event logic_delete before() : call(public void ProfilesLogic.deleteStudentProfile()){}
+ event db_delete before() : call(public void ProfilesDb.deleteStudentProfile()){}
+ 
+ ere : (logic_delete db_delete)*
+ 
+ @fail{
+    System.err.println("Error! logic class delete method was not called before the database delete method");
+    __RESET;
+ }
+
+}

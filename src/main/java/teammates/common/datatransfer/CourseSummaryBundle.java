@@ -22,6 +22,9 @@ public class CourseSummaryBundle {
      */
     public static void sortSummarizedCoursesByCourseId(List<CourseSummaryBundle> courses) {
         courses.sort(Comparator.comparing(obj -> obj.course.getId()));
+        for (int i = 1; i < courses.size(); i++) {
+            assert Integer.parseInt(courses.get(i).course.getId()) > Integer.parseInt(courses.get(i-1).course.getId()) : "course sorting failed";
+        }
     }
 
     /**
