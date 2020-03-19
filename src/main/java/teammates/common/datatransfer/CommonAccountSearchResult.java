@@ -24,6 +24,8 @@ public class CommonAccountSearchResult {
     }
 
     public void setEmail(String email) {
+        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        assert email.matches(regex) : "Error: email is not in correct format.";
         this.email = email;
     }
 
