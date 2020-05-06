@@ -26,6 +26,7 @@ public final class FileHelper {
      * @param file The file name, which must be in the {@code resources} folder.
      */
     public static String readResourceFile(String file) {
+        assert file != null : "Input file is null";
 
         try (Scanner scanner = new Scanner(getResourceAsStream(file), Const.SystemParams.ENCODING)) {
             return scanner.useDelimiter("\\Z").next();
