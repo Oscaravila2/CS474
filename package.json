@@ -35,7 +35,7 @@
     "classlist.js": "^1.1.20150312",
     "d3": "^5.15.0",
     "file-saver": "^2.0.2",
-    "handsontable": "^7.3.0",
+    "handsontable": "^10.0.0",
     "moment-timezone": "^0.5.27",
     "ngx-captcha": "^7.0.0",
     "ngx-clipboard": "^12.3.0",
